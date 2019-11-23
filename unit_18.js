@@ -20,6 +20,7 @@ document.querySelector('.b-1').onclick = t1;
 
 function t2() {
     let a2 = [2, 3, 4, 5, 10, 11, 12];
+    a2_res = [];
     a2.forEach(function (elem) {
         a2_res.push(elem / 2);
     });
@@ -34,6 +35,7 @@ document.querySelector('.b-2').onclick = t2;
 
 function t3() {
     let a3 = [2, 'hello', 3, 'hi', 4, 'Mazai'];
+    a3_res = [];
     a3.forEach(function (elem) {
         if (typeof elem == 'number') {
             a3_res.push(elem);
@@ -65,7 +67,7 @@ document.querySelector('.b-4').onclick = t4;
 
 function t5() {
     let data = this.getAttribute('data');
-    a5_res.push(data);
+    a5_res.push(+data);
     console.log(a5_res);
 }
 
@@ -81,7 +83,7 @@ document.querySelectorAll('.task-5').forEach(elem => {
 function t6() {
     let str6 = 'helloworld';
     a6_res = str6.split('');
-    console.log(a6_res);
+    document.querySelector('.out-6').innerHTML = a6_res;
 }
 
 document.querySelector('.b-6').onclick = t6;
@@ -118,6 +120,7 @@ function t9() {
     a9_res = a9.join(',');
     a9_res = a9_res.split(',');
     a9_res = a9_res.join('-');
+    console.log(a9_res);
     document.querySelector('.out-9').innerHTML = a9_res;
 }
 
@@ -128,7 +131,11 @@ document.querySelector('.b-9').onclick = t9;
 /*  Дан массив a10 = {name: ivan, age: 15, sex: 1, id: 45} - преобразуйте его в GET строку (GET параметры). Найдите описание что такое GET строка самостоятельно. Разделитель - амперсанд. Результат присвойте a10_res. Запускаться решение должно при вызове функции t10. Допускается лишний амперсанд в конце строки!!! */
 
 function t10() {
-
+    let a10 = { name: 'ivan', age: 15, sex: 1, id: 45 };
+    for (let key in a10) {
+        a10_res += key + '=' + a10[key] + '&';
+    }
+    document.querySelector('.out-10').innerHTML = a10_res;
 }
 
 document.querySelector('.b-10').onclick = t10;
